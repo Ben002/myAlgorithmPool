@@ -1,0 +1,4 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(467,5): warning MSB8028: 中间目录(Debug\)包含从另一个项目(ConsoleApplication1.vcxproj)共享的文件。   这会导致错误的清除和重新生成行为。
+  hash_search.c
+E:\mytest\source\repos\ConsoleApplication1\ConsoleApplication1\hash_search.c(17,9): warning C4101: “i”: 未引用的局部变量
+  ConsoleApplication1.vcxproj -> E:\mytest\source\repos\ConsoleApplication1\Debug\helloList.exe
