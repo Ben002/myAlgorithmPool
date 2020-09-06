@@ -13,6 +13,7 @@ typedef struct {
 
 int m = 0;
 
+//返回长度
 int InitHash(HashTable* H) {
     int i;
     m = HASH_SIZE;
@@ -22,8 +23,7 @@ int InitHash(HashTable* H) {
     for (int i = 0; i < m; i++) {
         H->elem[i] = NULL_KEY;
     }
-
-    return 1;
+    return H->count;
 
 }
 
@@ -34,7 +34,7 @@ int Hash(int k) {
 
 void Insert(HashTable* H, int k) {
     int addr = Hash(k);
-    if (H->elem[addr] != NULL_KEY) {
+    while (H->elem[addr] != NULL_KEY) {
         addr = (addr + 1) % m;
     }
     H->elem[addr] = k;
@@ -63,10 +63,17 @@ int main()
 	int i = 0;
     int arrayValue[12] = {1,3,67,5,55,8,9,23,14,79,99,12};
     HashTable H;
+    
+
+
     InitHash(&H);
 
     for (int i = 0; i < (sizeof(arrayValue)/sizeof(int)); i++) {
         Insert(&H, arrayValue[i]);
+    }
+
+    for (int i = 0; i < H.count; i++) {
+        printf("H的位置 %d -> H.elem= %d \n", i,H.elem[i]);
     }
     
     for (int i = 0; i < (sizeof(arrayValue) / sizeof(int)); i++) {
